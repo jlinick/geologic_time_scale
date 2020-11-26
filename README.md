@@ -3,7 +3,7 @@
 
  ### Quick run
  
- 1. Clone the repo & fill auth.key.example with keys for Earthdata login Google Maps API.
+ 1. Clone the repo & run the time.py script.
  ```shell
 $ git clone https://github.com/jlinick/geologic_time_scale
 $ cd geologic_time_scale
