@@ -12,7 +12,7 @@ $ ./time.py
  2. you should now have the timeline.svg in your folder!
 
 ![Example Image](./example.svg)
-<img src="./example.svg">
+<img src="./example.svg" width="1200" height="200">
 
 ### Notes:
 
