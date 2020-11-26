@@ -12,7 +12,7 @@ white_background = False # white or black background
 max_year = 4540.
 buff = (100,100,50,75) # buffer around image in pixels, (left, right, top, bottom)
 xlen = 12000 # width in pix
-ylen = 1950 # height in pix
+ylen = 2000 # height in pix
 
 hh = [10,20,30] #used in generating allowed heights for range events
 jj = 1 # used in generating heights
