@@ -9,20 +9,23 @@ import matplotlib.cm
 
 # global variables (can change these)
 white_background = False # white or black background
-max_year = 4540.
+matplotlib_color = 'rainbow'#'gist_rainbow'#'cool'
+linear_scale = False # if False, will use scale_factor to make the timeline logarithmic
+scale_factor = 0.3# goes from 0-1. 0 is logarithmic, 1 is linear.
+max_year = 4540. # oldest time
 buff = (100,100,50,75) # buffer around image in pixels, (left, right, top, bottom)
 xlen = 12000 # width in pix
 ylen = 2000 # height in pix
 
-hh = [10,20,30] #used in generating allowed heights for range events
-jj = 1 # used in generating heights
-
 # dicts for adjusting heights, etc
 era_heights = {'supereon':100, 'eon':100, 'era':100, 'period':400, 'epoch':300, 'age':100}
-era_sizes = {'supereon':70, 'eon':70, 'era':50, 'period':45, 'epoch':40, 'age':30}
-vertical_text = ['period', 'epoch']
-type_colors = {'general': [42,42,165], 'man': [127,0,255], 'extinction': [240,20,20], 'life': [20,210,20], 'geologic': [165,42,42], 'glac':[0,0,255]} # colors for event lines
+era_sizes = {'supereon':70, 'eon':70, 'era':50, 'period':45, 'epoch':40, 'age':30} # font sizes
+vertical_text = ['period', 'epoch'] # which eras to draw vertically
+type_colors = {'general': [42,42,165], 'man': [127,0,255], 'extinction': [240,20,20], 'life': [20,210,20], 'geologic': [165,164,49], 'glac':[0,0,255]} # colors for event lines
 
+# ignorable stuff
+hh = [10,20,30] #used in generating allowed heights for range events
+jj = 1 # used in generating heights
 
 class abin:
     def __init__(self, name, start, height):
@@ -30,7 +33,7 @@ class abin:
         self.start = start
         self.height = height
 
-def get_pix(year, linear=False, n=0.3):
+def get_pix(year, linear=linear_scale, n=scale_factor):
     '''converts the year into a pixel number. If non-linear it goes from 1 (linear) to 0 (log)'''
     num_pix = xlen - buff[0] - buff[1]
     if linear:
@@ -75,7 +78,7 @@ def get_color(obj):
     '''gets a color for a timeline object'''
     t = (obj.start + obj.end)/2
     ti = t/max_year
-    cmap = matplotlib.cm.get_cmap('gist_rainbow')
+    cmap = matplotlib.cm.get_cmap(matplotlib_color)
     (r,g,b,a) = cmap(ti)
     color = 'rgb({},{},{})'.format(int(255*r),int(255*g),int(255*b))
     return color

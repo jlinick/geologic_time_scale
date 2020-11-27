@@ -53,7 +53,7 @@ class timeline:
             for tim in lst:
                 print('{} to {} Ma -- {} {}'.format(cvt_num(tim.start), cvt_num(tim.end), cvt_s(tim.name), cvt_s(i)))
             print()
-        self.print_events()
+        elf.print_events()
 
     def print_events(self):
         print('---EVENTS---')
@@ -132,11 +132,25 @@ t.add(time('epoch','Holocene', 0.012, 0.0))
 # add events
 # general
 t.add(event('Earth forms from the solar protoplanetary disk', 4540))
-t.add(event('the big thwack', 4425, start=4450, end=4400))
 t.add(event('Late Heavy Bombardment', 3950, start=4100, end=3800))
 t.add(event('\'boring\' billion', 1300, start=1800, end=800))
+t.add(event('peak of Cretaceous Thermal Maximum', 90))
 t.add(event('Paleocene–Eocene Thermal Maximum', 55.5))
+t.add(event('atmosphere becomes oxygenic', 2050))
+t.add(event('Azolla event', 49))
+t.add(event('Middle Miocene disruption', 14))
+t.add(event('Messinian salinity crisis', 5.645, start=5.96, end=5.33))
 
+# geologic
+t.add(event('the big thwack', 4425, start=4450, end=4400, typ='geologic'))
+t.add(event('Columbia supercontinent forms', 2500, typ='geologic'))
+t.add(event('Neoproterozoic supercontinent Rodinia begins to form', 1100, typ='geologic'))
+t.add(event('Rodinia breaking up', 750, typ='geologic'))
+t.add(event('opening of the Iapetus ocean', 600, start=650, end=550, typ='geologic'))
+t.add(event('formation of Gondwana supercontinent', 550, typ='geologic'))
+t.add(event('Pangea begins to form', 335, typ='geologic'))
+t.add(event('breakup of Pangea', 140, start=150, end=130, typ='geologic'))
+t.add(event('Zanclean deluge', 5.33, typ='geologic'))
 
 # life
 t.add(event('Great Oxidation Event', 2200, start=2400, end=2000, typ='life'))
@@ -177,7 +191,7 @@ t.add(event('earliest cooking', 2.0, start=2.3, end=1.8, typ='man'))
 # extinctions
 t.add(event('Ordovician–Silurian extinction events', 445, start=450, end=440, typ="extinction")) 
 t.add(event('Late Devonian extinction event', 368, start=370, end=360, typ="extinction")) 
-t.add(event('Permian-Triassic extinction event', 252, typ="extinction", desc="Earth's largest extinction event")) 
+t.add(event('Permian-Triassic extinction event (95% of all life disappears)', 252, typ="extinction", desc="Earth's largest extinction event")) 
 t.add(event('Triassic-Jurassic extinction event', 201.3, typ='extinction'))
 t.add(event('Cretaceous-Paleogene (K-Pg) extinction event', 66, typ='extinction'))
 
